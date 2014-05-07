@@ -105,6 +105,7 @@
 ;(load-theme 'tsdh-dark t)
 (load-theme 'solarized-dark t)
 (custom-set-faces
+ '(helm-selection ((t (:background "highlightColor" :underline t))))
  '(which-func ((t (:foreground "snow")))))
 
 ; Font
