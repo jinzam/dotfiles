@@ -172,6 +172,14 @@
 
 
 ;;;
+;;; C
+;;;
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (c-set-style "linux")
+             (setq indent-tabs-mode t)))
+
+;;;
 ;;; js2-mode
 ;;;
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
