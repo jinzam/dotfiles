@@ -118,6 +118,13 @@
                   'append)
 (add-to-list 'default-frame-alist '(font . "fontset-ricty"))
 
+; whitespace-mode
+(require 'whitespace)
+(setq whitespace-style '(face trailing tabs tab-mark))
+(set-face-attribute 'whitespace-tab nil
+                    :background nil
+                    :underline t)
+(global-whitespace-mode t)
 
 ;;;
 ;;; helm
