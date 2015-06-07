@@ -61,6 +61,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq-default tab-width 8 indent-tabs-mode nil)
 
+(add-hook 'text-mode-hook
+          '(lambda ()
+             (setq fill-column 72)
+             (auto-fill-mode 1)
+             ))
 
 ; Mac OS X specific
 (when darwin-p
@@ -101,22 +106,6 @@
 ;;;
 ;;; Face
 ;;;
-; Theme
-;(load-theme 'tsdh-dark t)
-(load-theme 'solarized-dark t)
-(custom-set-faces
- '(helm-selection ((t (:background "highlightColor" :underline t))))
- '(which-func ((t (:foreground "snow")))))
-
-; Font
-(create-fontset-from-ascii-font
- "Ricty-14:weight=normal:slant=normal" nil "ricty")
-(set-fontset-font "fontset-ricty"
-                  'unicode
-                  (font-spec :family "Ricty" :size 14)
-                  nil
-                  'append)
-(add-to-list 'default-frame-alist '(font . "fontset-ricty"))
 
 ; whitespace-mode
 (require 'whitespace)
@@ -124,7 +113,25 @@
 (set-face-attribute 'whitespace-tab nil
                     :background nil
                     :underline t)
-(global-whitespace-mode t)
+
+(when (display-graphic-p)
+
+  ; Theme
+  (load-theme 'solarized t)
+
+  ; Font
+  (create-fontset-from-ascii-font
+   "Ricty-14:weight=normal:slant=normal" nil "ricty")
+  (set-fontset-font "fontset-ricty"
+                    'unicode
+                    (font-spec :family "Ricty" :size 14)
+                    nil
+                    'append)
+  (add-to-list 'default-frame-alist '(font . "fontset-ricty"))
+
+  (global-whitespace-mode t)
+)
+
 
 ;;;
 ;;; helm
