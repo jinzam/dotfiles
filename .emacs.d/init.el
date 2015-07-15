@@ -161,6 +161,10 @@
              (local-set-key (kbd "M-s") 'helm-gtags-find-symbol)
              (local-set-key (kbd "C-t") 'helm-gtags-pop-stack)))
 
+;;;
+;;; diff
+;;;
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 ;;;
 ;;; The Silver Searcher (ag)
