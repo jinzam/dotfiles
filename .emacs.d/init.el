@@ -147,7 +147,7 @@
 (setq helm-ag-thing-at-point 'symbol)
 
 (require 'helm-gtags)
-(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c-mode-common-hook 'helm-gtags-mode)
 
 ; Key binding with helm
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
@@ -192,7 +192,7 @@
 ;;;
 ;;; C
 ;;;
-(add-hook 'c-mode-hook
+(add-hook 'c-mode-common-hook
           '(lambda ()
              (c-set-style "linux")
              (setq indent-tabs-mode t)))
